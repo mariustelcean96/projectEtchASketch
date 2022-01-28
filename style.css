@@ -1,7 +1,9 @@
 .flex-container {
     border: 1px solid rgb(9, 19, 29);
-    height: 320px; /* each small container will be a square 32x32px across*/
-    width: 320px;
+    height: 256px; /* each small container will be a square 16x16px across*/
+    width: 256px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 body {
