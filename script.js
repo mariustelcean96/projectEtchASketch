@@ -43,3 +43,6 @@ const resetButton = document.querySelector('#resetButton');
 resetButton.addEventListener('click', resetGrid);
 
 const colorButton = document.querySelector('#colorButton');
+colorButton.addEventListener('click', (e) => {
+    console.log(e);
+})
