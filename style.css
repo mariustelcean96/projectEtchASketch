@@ -1,0 +1,9 @@
+.flex-container {
+    border: 1px solid rgb(9, 19, 29);
+    height: 320px; /* each small container will be a square 32x32px across*/
+    width: 320px;
+}
+
+body {
+    background-color: rgb(37, 76, 116);
+}
