@@ -1,11 +1,10 @@
 const FlexContainer = document.querySelector('.flex-container');
-
 /* Constructing the container shape */
 
 function drawGrid(squareNum) {
   for (let i = 1; i <= squareNum*squareNum; i++) {
     const div = document.createElement('div');
-    div.style.cssText = `width: ${256/squareNum}px; height: ${256/squareNum}px`;
+    div.style.cssText = `width: ${FlexContainer.clientWidth/squareNum}px; height: ${FlexContainer.clientHeight/squareNum}px`;
     div.textContent = '';
     div.classList.toggle('flexItem');
     FlexContainer.appendChild(div);
@@ -28,7 +27,7 @@ addHoverBehaviour('red');
 function promptUser() {
   let promptValue;
   do {
-    promptValue = parseInt(prompt('How many squares should be on one side of the array? (Positive whole number, bigger than 4)', '32')); 
+    promptValue = parseInt(prompt('How many squares/ side of array? (4 < x < 96 | x % 4 = 0)', '32')); 
     } while (promptValue < 4 || promptValue > 100)
   squareNum = promptValue;
   return squareNum;
@@ -54,3 +53,13 @@ colorButton.addEventListener('click', (e) => {
 colorButton.addEventListener('change', (e) => {
     addHoverBehaviour(e.target.value);
 });
+
+const squareRangeSpan = document.querySelector('#squareRangeValue');
+const squareRange = document.querySelector('#squares');
+squareRange.addEventListener('change', (e) => {
+  squareRangeSpan.textContent = e.target.value;
+  const FlexContainer = document.querySelector('.flex-container');
+  FlexContainer.innerHTML = "";
+  drawGrid(e.target.value);
+  addHoverBehaviour('red');
+})

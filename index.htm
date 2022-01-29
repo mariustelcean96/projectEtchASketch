@@ -4,8 +4,11 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <label for="squares">Number of squares for the sketch pad (between 4 and 96):</label>
+        <input type="range" id="squares" min="4" max="96" step="4">
+        <span id="squareRangeValue"></span><br><br>
         <button id="resetButton">Reset Grid</button>
-        <input id="colorButton" type="color">
+        <input id="colorButton" type="color"><br><br>
         <div class="flex-container">
         </div>
         
