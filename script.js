@@ -76,14 +76,13 @@ function generateRGBValues() {
 }
 generateRGBValues();
 
-const randomRGBColor = generateRGBValues();
-
 const RGBMode = document.querySelector('#RGBColor');
 RGBMode.addEventListener('click', () => {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
   div.addEventListener('mouseover', () => {
-    div.style.cssText += `background-color: rgb ( ${randomRGBColor[0]}, ${randomRGBColor[1]}, ${randomRGBColor[2]} );`;
+    let randomRGBColor = generateRGBValues();
+    div.style.cssText += `background-color: rgb(${randomRGBColor[0]}, ${randomRGBColor[1]}, ${randomRGBColor[2]})`;
     });
   });
 });
