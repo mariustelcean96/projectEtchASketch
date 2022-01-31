@@ -22,7 +22,7 @@ function addHoverBehaviour(color) {
     });
   });
 }
-addHoverBehaviour('red');
+//addHoverBehaviour('red');
 
 /* Prompt the user for the new number of squares/ side of the grid */
 
@@ -97,32 +97,44 @@ RGBMode.addEventListener('click', () => {
 
 const eraserButton = document.querySelector('#eraser');
 eraserButton.addEventListener('click', eraseColor);
+
 function eraseColor() {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
       e.target.style.backgroundColor = 'transparent';
-    }) 
+    });
   });
+}
 
-/* Implement the shading button*/
+/* Pre-color the grid using rgba color system */
 
-  /*const FlexContainer = document.querySelector('.flex-container');
-  FlexContainer.innerHTML = "";
-  drawGrid(16);
+function preColorGrid(color) {
   const divs = document.querySelectorAll('.flexItem');
-  addHoverBehaviour('rgba(0,0,0,0)');
+  divs.forEach((div) => { 
+    div.style.backgroundColor = color;
+  });
+}
+
+/* Implement the shading functionality */
+
+const shadingButton = document.querySelector('#shading');
+shadingButton.addEventListener('click', shadeGrid); 
+
+function shadeGrid() {
+  preColorGrid('rgba(0,0,0,0)');
+  const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
-    let currentColor = e.target.style.backgroundColor;
-    let opacityString =  currentColor.split(" ")[3]; //Inspired myself from the repo of ali-h-s21
+    let divColor = div.style.backgroundColor;
+    let opacityString = divColor.split(" ")[3]; //ali-h-s21
     let opacity = parseFloat(opacityString);
     console.log(opacity);
     if (opacity === 0) {
-      e.target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+      e.target.style.backgroundColor = 'rgba(0,0,0,0.1)';
     } else if (opacity >= 0.1 && opacity <= 0.9) {
-      e.target.style.backgroundColor = `rgba(0,0,0,${opacity + 0.1})`
+      e.target.style.backgroundColor = `rgba(0,0,0,${opacity + 0.1})`;// after 0.9 it displays NaN
     }
   });
-  });*/
+  });
 }
