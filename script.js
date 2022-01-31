@@ -17,12 +17,14 @@ drawGrid(16);
 function addHoverBehaviour(color) {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
-  div.addEventListener('mouseover', () => {
-    div.style.cssText += `background-color: ${color}`;
+  div.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = `${color}`;
     });
   });
 }
 addHoverBehaviour('red');
+
+/* Prompt the user for the new number of squares/ side of the grid */
 
 function promptUser() {
   let promptValue;
@@ -54,6 +56,8 @@ colorButton.addEventListener('change', (e) => {
     addHoverBehaviour(e.target.value);
 });
 
+/* Implement the range type input */
+
 const squareRangeSpan = document.querySelector('#squareRangeValue');
 const squareRange = document.querySelector('#squares');
 squareRangeSpan.textContent = squareRange.value;
@@ -76,13 +80,49 @@ function generateRGBValues() {
 }
 generateRGBValues();
 
+/* Color using random RGB */
+
 const RGBMode = document.querySelector('#RGBColor');
 RGBMode.addEventListener('click', () => {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
-  div.addEventListener('mouseover', () => {
+  div.addEventListener('mouseover', (e) => {
     let randomRGBColor = generateRGBValues();
-    div.style.cssText += `background-color: rgb(${randomRGBColor[0]}, ${randomRGBColor[1]}, ${randomRGBColor[2]})`;
+    e.target.style.backgroundColor = `rgb(${randomRGBColor[0]}, ${randomRGBColor[1]}, ${randomRGBColor[2]})`;
     });
   });
 });
+
+/* Implement the erase button*/
+
+const eraserButton = document.querySelector('#eraser');
+eraserButton.addEventListener('click', eraseColor);
+function eraseColor() {
+  const divs = document.querySelectorAll('.flexItem');
+  divs.forEach((div) => {
+    div.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = 'transparent';
+    }) 
+  });
+
+/* Implement the shading button*/
+
+  /*const FlexContainer = document.querySelector('.flex-container');
+  FlexContainer.innerHTML = "";
+  drawGrid(16);
+  const divs = document.querySelectorAll('.flexItem');
+  addHoverBehaviour('rgba(0,0,0,0)');
+  divs.forEach((div) => {
+  div.addEventListener('mouseover', (e) => {
+    let currentColor = e.target.style.backgroundColor;
+    let opacityString =  currentColor.split(" ")[3]; //Inspired myself from the repo of ali-h-s21
+    let opacity = parseFloat(opacityString);
+    console.log(opacity);
+    if (opacity === 0) {
+      e.target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    } else if (opacity >= 0.1 && opacity <= 0.9) {
+      e.target.style.backgroundColor = `rgba(0,0,0,${opacity + 0.1})`
+    }
+  });
+  });*/
+}
