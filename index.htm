@@ -8,13 +8,13 @@
         <input type="range" id="squares" min="4" max="96" step="4" value="16">
         <span id="squareRangeValue"></span><br><br>
         <button id="resetButton">Reset Grid</button>
-        <input id="colorButton" type="color">
+        <input type="color" value="#e66465" id="colorButton">
         <button id="RGBColor">Random RGB</button>
-        <button id="eraser">Eraser</button>
-        <button id="shading">Shading</button><br><br>
+        <button id="eraser">Eraser</button><br>
         <div class="flex-container">
         </div>
-        
+        <label for="shading">Due to some limitations, shading is only possible to a grid colored using the RGBA scheme. Pressing <i>Shading</i> will <strong>reset</strong> the grid and color it's component cells with white derived from RGBA.</label>
+        <button id="shading">Shading</button>
         <script src="script.js"> 
         </script>
     </body>

@@ -18,11 +18,10 @@ function addHoverBehaviour(color) {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = `${color}`;
+    e.target.style.backgroundColor = color;
     });
   });
 }
-//addHoverBehaviour('red');
 
 /* Prompt the user for the new number of squares/ side of the grid */
 
@@ -51,6 +50,7 @@ resetButton.addEventListener('click', resetGrid);
 const colorButton = document.querySelector('#colorButton');
 colorButton.addEventListener('click', (e) => {
     addHoverBehaviour(e.target.value);
+    console.log(e.target.value);
 });
 colorButton.addEventListener('change', (e) => {
     addHoverBehaviour(e.target.value);
@@ -126,14 +126,13 @@ function shadeGrid() {
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
-    let divColor = div.style.backgroundColor;
-    let opacityString = divColor.split(" ")[3]; //ali-h-s21
-    let opacity = parseFloat(opacityString);
-    console.log(opacity);
+    let divColor = e.target.style.backgroundColor;
+    let divColorArray = divColor.split(" "); //I took some inspiration from a repo by ali-h-s21
+    let opacity = parseFloat(divColorArray[3]);
     if (opacity === 0) {
       e.target.style.backgroundColor = 'rgba(0,0,0,0.1)';
     } else if (opacity >= 0.1 && opacity <= 0.9) {
-      e.target.style.backgroundColor = `rgba(0,0,0,${opacity + 0.1})`;// after 0.9 it displays NaN
+      e.target.style.backgroundColor = `rgba(0,0,0,${opacity + 0.1})`;
     }
   });
   });
