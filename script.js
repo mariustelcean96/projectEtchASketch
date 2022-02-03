@@ -41,7 +41,6 @@ function resetGrid() {
   FlexContainer.innerHTML = "";
   const squareNum = promptUser();
   drawGrid(squareNum);
-  addHoverBehaviour('red');
 }
 
 const resetButton = document.querySelector('#resetButton');
@@ -66,7 +65,6 @@ squareRange.addEventListener('change', (e) => {
   const FlexContainer = document.querySelector('.flex-container');
   FlexContainer.innerHTML = "";
   drawGrid(e.target.value);
-  addHoverBehaviour('red');
 });
 
 /* Generate random RGB (0 – 255) values */
@@ -122,12 +120,13 @@ const shadingButton = document.querySelector('#shading');
 shadingButton.addEventListener('click', shadeGrid); 
 
 function shadeGrid() {
+  // I need to stop the execution of the other functions (eraseColor, generateRGBValues etc) before running shadeGrid because they intefere.
   preColorGrid('rgba(0,0,0,0)');
   const divs = document.querySelectorAll('.flexItem');
   divs.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
     let divColor = e.target.style.backgroundColor;
-    let divColorArray = divColor.split(" "); //I took some inspiration from a repo by ali-h-s21
+    let divColorArray = divColor.split(" "); //I took some inspiration from the EtchASketch repo by ali-h-s21
     let opacity = parseFloat(divColorArray[3]);
     if (opacity === 0) {
       e.target.style.backgroundColor = 'rgba(0,0,0,0.1)';
