@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
+  <head>
+    <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <div class="htmlFlexContainer">
-            <div class="htmlFlexContainerItem">
-                <label for="squares">Squares/side of sketch pad:</label>
-                <input style="width: 50px; margin: 2px;" type="number" id="squares" min="4" max="96" step="4" value="16">
-            </div>
-            <div class="htmlFlexContainerItem"><button id="resetButton">Reset Grid</button></div>
-        </div>
-        
-        
-        <input type="color" value="#e66465" id="colorButton">
-        <button id="RGBColor">Random RGB</button>
-        <button id="eraser">Eraser</button><br>
-        <div class="flex-container">
-        </div>
-        
-        <label for="shading">Due to some limitations, shading is only possible to a grid colored using the RGBA scheme. 
-            Pressing <i>Shading</i> will <strong>reset</strong> the grid and color it's component cells with white derived from RGBA. 
-            As such, <i>Shading</i> only works after you refresh the page (on a page on which other coloring buttons weren't pressed).</label>
-        <button id="shading">Shading</button>
-        <script src="script.js"> 
-        </script>
-    </body>
+<body>
+  <label for="squares">Squares/side of sketch pad:</label>
+  <input style="width: 50px; margin: 2px;" type="number" id="squares" min="4" max="96" step="4" value="16">
+  <button id="resetButton">Reset Grid</button>
+  <input type="color" value="#e66465" id="colorButton">
+  <button id="RGBColor">Random RGB</button>
+  <button id="eraser">Eraser</button><br>
+  <div class="flex-container">
+  </div>
+  <label for="shading">So far I am only able to add shading to a grid colored using the RGBA scheme. 
+    Pressing <i>Shading</i> will <strong>reset</strong> the grid and color it's component cells with RGBA (0,0,0,0) a.k.a. transparent. 
+    As such, <i>Shading</i> only works after you refresh the page (or, in other words, on a page on which other coloring buttons weren't pressed).</label>
+    <button id="shading">Shading</button>
+  <script src="script.js"> 
+  </script>
+</body>
 </html>

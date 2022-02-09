@@ -1,22 +1,41 @@
-.htmlFlexContainer {
-    display: flex;
-    padding: 16px;
-    background-color: plum;
-    border: 3px solid grey;
+body {
+  color: #4F4F4F;
+  font-family:'Gill Sans', 'Arial';
+  font-size: 1.5rem;
+  padding: 16px;
 }
 
-.htmlFlexContainerItem {
-    width: 100px;
-    height: 100px;
-    background-color: powderblue;
-    border: 3px solid grey;
-    flex: 1;
+button {
+  background-color:#CCCCCC;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+
+button:hover {
+    background-color:#BABABA;
 }
 
 .flex-container {
-    border: 1px solid rgb(9, 19, 29);
-    height: 256px; /* each small container will be a square 16x16px across*/
-    width: 256px;
-    display: flex;
-    flex-wrap: wrap;
+  border: 1px solid rgb(9, 19, 29);
+  height: 256px; /* each small container will default to a square 16x16px across*/
+  width: 256px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px auto;
+}
+
+@media only screen and (max-width: 600px) { /*When width drops below 600px*/
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  body {
+    font-size: 0.9rem;
+  }
 }
