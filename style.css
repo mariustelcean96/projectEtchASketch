@@ -1,3 +1,18 @@
+.htmlFlexContainer {
+    display: flex;
+    padding: 16px;
+    background-color: plum;
+    border: 3px solid grey;
+}
+
+.htmlFlexContainerItem {
+    width: 100px;
+    height: 100px;
+    background-color: powderblue;
+    border: 3px solid grey;
+    flex: 1;
+}
+
 .flex-container {
     border: 1px solid rgb(9, 19, 29);
     height: 256px; /* each small container will be a square 16x16px across*/

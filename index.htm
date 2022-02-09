@@ -4,10 +4,15 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <label for="squares">Squares/side of sketch pad (between 4 and 96):</label>
-        <input type="range" id="squares" min="4" max="96" step="4" value="16">
-        <span id="squareRangeValue"></span><br><br>
-        <button id="resetButton">Reset Grid</button>
+        <div class="htmlFlexContainer">
+            <div class="htmlFlexContainerItem">
+                <label for="squares">Squares/side of sketch pad:</label>
+                <input style="width: 50px; margin: 2px;" type="number" id="squares" min="4" max="96" step="4" value="16">
+            </div>
+            <div class="htmlFlexContainerItem"><button id="resetButton">Reset Grid</button></div>
+        </div>
+        
+        
         <input type="color" value="#e66465" id="colorButton">
         <button id="RGBColor">Random RGB</button>
         <button id="eraser">Eraser</button><br>

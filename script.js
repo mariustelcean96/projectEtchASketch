@@ -57,11 +57,8 @@ colorButton.addEventListener('change', (e) => {
 
 /* Implement the range type input */
 
-const squareRangeSpan = document.querySelector('#squareRangeValue');
 const squareRange = document.querySelector('#squares');
-squareRangeSpan.textContent = squareRange.value;
 squareRange.addEventListener('change', (e) => {
-  squareRangeSpan.textContent = e.target.value;
   const FlexContainer = document.querySelector('.flex-container');
   FlexContainer.innerHTML = "";
   drawGrid(e.target.value);
